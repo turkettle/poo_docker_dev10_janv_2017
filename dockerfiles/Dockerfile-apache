@@ -4,7 +4,14 @@ MAINTAINER Gaetan Pralong <contact@gaetan.io>
 # Mise à jour de la liste des dépôts de Debian.
 RUN apt-get update
 
-# Installation de la librairie PHP-CURL pour composer.
+# Mise à jour des packets de l'OS Debian.
+RUN apt-get upgrade -y
+
+# Activation du module Rewrite pour Apache2.
+RUN a2enmod rewrite
+RUN service apache2 restart
+
+# Installation de la librairie PHP-CURL pour Composer.
 RUN apt-get install php5-curl -y
 
 # Téléchargement et installation globale de Composer.
