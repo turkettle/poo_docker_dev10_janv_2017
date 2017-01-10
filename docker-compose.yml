@@ -1,0 +1,13 @@
+version: '2'
+services:
+
+  apache:
+    build:
+      context: './dockerfiles'
+      dockerfile: 'Dockerfile-apache'
+    container_name: 'apache'
+    ports:
+      - '80:80'
+    volumes:
+      - '/home/aston/Public/docker-project/poo:/var/www/html'
+      - '/home/aston/Public/docker-project/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf'
